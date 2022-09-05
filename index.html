@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>E-Library</title>
+</head>
+
+<body onscroll="hidepro()">
+
+
+  <div class="overlay hidden" id="register">
+    <div class="modal">
+      <div class="reg-page">
+        <div class="mini-reg">
+          <P>WELCOME TO META LIBRARY</P>
+          <img src="./images/logo.webp" alt="" onclick="close1()">
+          <p>People's Choice</p>
+        </div>
+        <div class="major-reg">
+          <div class="reg-line1">START YOUR JOURNEY WITH BETA LIBRARY</div>
+          <div class="reg-content">
+            <div class="flow" id="flow">
+              <span>Name</span> <input type="text" id="regname">
+              <span>Username</span> <input type="text" id="regusername">
+              <span>Email</span> <input type="email" id="regemail">
+              <span>Password</span>
+              <div>
+                <input type="password" id="regpassword">
+                <i class="fa fa-eye" aria-hidden="true" id="show-hideP" onclick="showPassword(regPassword)"></i>
+              </div>
+              <span>confirm Password</span>
+              <div>
+                <input type="password" id="confirmpassword">
+                <i class="fa fa-eye" aria-hidden="true" id="show-hideCP" onclick="showPassword(regCP)"></i>
+              </div>
+              <span>Set security question 1</span> <input type="text" id="SQ1">
+              <span>Answer 1</span> <input type="text" id="SA1">
+              <span>Set security question 2</span><input type="text" id="SQ2">
+              <span>Answer 2</span> <input type="text" id="SA2">
+            </div>
+            <div class="regbutton">
+              <button onclick="register()">REGISTER</button>
+            </div>
+
+          </div>
+          <div class="reg-checking">Already have an account?
+            <span class="in" onclick="loginPage()">Sign in</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div></div>
+
+
+
+  <div class="overlay hidden" id="login">
+    <div class="modal">
+      <div class="reg-page">
+        <div class="mini-reg">
+          <P>WELCOME TO BETA LIBRARY</P>
+          <img src="./images/logo.webp" alt="" onclick="close1()">
+          <p>People's Choice</p>
+        </div>
+        <div class="major-login">
+          <div class="login-line1">SIGN IN TO BETA LIBRARY</div>
+          <div class="loginflow">
+            <span>Username</span> <input type="text" id="loginusername">
+            <span>Password</span>
+            <div class="pp">
+              <input type="password" id="loginpassword">
+              <i class="fa fa-eye pointer" aria-hidden="true" onclick="showPassword(loginPassword)"></i>
+            </div>
+            <div></div>
+            <div class="pp pointer">
+              <p onclick="forgetPasswordPage()">Forget Password</p>
+              <button onclick="login()">LOGIN</button>
+            </div>
+          </div>
+          <div class="reg-checking">Don't have an account yet?
+            <span class="in" onclick="registerPage()">Register</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="generaldisplay">
+    <div class="modal">
+      <div class="savebook" id="generalID">
+
+        <!-- <div class="save1">ENTER BOOK DETAILS</div>
+          <div class="book-content">
+            <span>Name</span> <input type="text" id="bookname">
+            <span>Author</span> <input type="text" id="bookauthor">
+            <span>No of Pages</span> <input type="email" id="bookpage">
+            <span>Category</span> <input type="password" id="bookcategory">
+            <span>Ratings</span> <input type="text" id="bookrating">
+            <span>Price</span> <input type="text" id="bookprice">
+            <span>Lending Price</span><input type="text" id="lendingprice">
+            <span>Date Published</span> <input type="text" id="publishdate">
+            <span>Picture Name</span> <input type="text" id="imagepath">
+          </div>
+          <div class="save-checking">
+            <button onclick="saveBook()">SAVE BOOK</button>
+            <button onclick="close1()">CANCEL</button>
+          </div> -->
+
+
+        <!-- <div class="save1">WELCOME JOSE</div>
+          <div class="general-content">
+            <div class="disprof">
+              <span>Name : ${}</span>
+              <button>edit</button>
+            </div>
+            <div class="disprof">
+              <span>Emai : ${}</span>
+              <button>edit</button>
+            </div>
+            <div class="disprof">
+              <span>Username : ${}</span>
+              <span></span>
+            </div>
+            <div class="disprof">
+              <span>Password : xxxxxxxx</span>
+              <button>edit</button>
+            </div>
+            <div class="disprof">
+              <span>SQ 1 : ${}</span>
+              <button>edit</button>
+            </div>
+            <div class="disprof">
+              <span>SA 1 : ${}</span>
+              <button>edit</button>
+            </div>
+            <div class="disprof">
+              <span>SQ 2 : ${}</span>
+              <button>edit</button>
+            </div>
+            <div class="disprof">
+              <span>SA 2 : ${}</span>
+              <button>edit</button>
+            </div>
+          </div>
+          <div class="save-checking">
+            <button onclick="close1()" class="pointer">GO BACK</button>
+          </div> -->
+
+
+
+
+        <!-- <div class="save1">
+            <span>ALL USERS</span>
+            <input type="text" placeholder="search Username">
+          </div>
+          <div class="table-content">
+            <table>
+              <thead>
+                <th>serial no</th>
+                <th>Username</th>
+                <th>actions</th>
+              </thead>
+              <tbody>
+                <tr>
+                <td>1</td>
+                <td>JosephLee</td>
+                <td class="tdc">
+                  <button>del</button>
+                  <button>restrict</button>
+                  <button>Make Admin</button>
+                </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="save-checking">
+            <button onclick="close1()" class="pointer">GO BACK</button>
+          </div> -->
+
+
+
+        <!-- <div class="save1">
+            <span>ALL BOOKS</span>
+            <input type="text" placeholder="search Books">
+          </div>
+          <div class="table-content">
+            <table>
+              <thead>
+                <th>serial no</th>
+                <th>Book Name</th>
+                <th>actions</th>
+              </thead>
+              <tbody>
+                <tr>
+                <td>1</td>
+                <td>King Author</td>
+                <td class="tdc">
+                  <button>del</button>
+                  <button>restrict</button>
+                  <button>edit</button>
+                </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="save-checking">
+            <button onclick="close1()" class="pointer">GO BACK</button>
+          </div> -->
+
+
+
+        <!-- <div class="save1">
+            <span>MY WISHLIST</span>
+            <input type="text" placeholder="search Bookname">
+          </div>
+          <div class="table-content">
+            <table>
+              <thead>
+                <th>serial no</th>
+                <th>Book Name</th>
+                <th>actions</th>
+              </thead>
+              <tbody>
+                <tr>
+                <td>1</td>
+                <td>king jacob</td>
+                <td class="tdc">
+                  <button>del</button>
+                  <button>borrow</button>
+                  <button>buy</button>
+                </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="save-checking">
+            <button onclick="close1()" class="pointer">GO BACK</button>
+          </div> -->
+
+
+
+
+        <!-- <div class="save1">
+            <span>MY BOOKLIST</span>
+            <input type="text" placeholder="search Books">
+          </div>
+          <div class="table-content">
+            <table>
+              <thead>
+                <th>serial no</th>
+                <th>Book Name</th>
+                <th>status</th>
+                <th>actions</th>
+              </thead>
+              <tbody>
+                <tr>
+                <td>1</td>
+                <td>king jacob</td>
+                <td>borrow</td>
+                <td class="tdc">
+                  <button>del</button>
+                  <button>return</button>
+                </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="save-checking">
+            <button onclick="close1()" class="pointer">GO BACK</button>
+          </div> -->
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="forgetpassword">
+    <div class="modal">
+      <div class="reg-page">
+        <div class="mini-reg">
+          <P>WELCOME TO BETA LIBRARY</P>
+          <img src="./images/logo.webp" alt="" onclick="close1()">
+          <p>People's Choice</p>
+        </div>
+        <div class="major-login">
+          <div class="login-line1">FILL IN THE FORM BELOW</div>
+          <div class="forgetpass" id="fpuser">
+          </div>
+          <div class="reg-checking">Don't have an account yet?
+            <span class="in" onclick="registerPage()">Register</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="main-container" class="">
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <a href="#">
+            <img src="./images/logo.webp" alt="e-library logo" />
+          </a>
+        </div>
+        <div class="header-search">
+          <input type="text" placeholder="Search by name" id="searhword" oninput="search()" />
+          <i class="fas fa-search" onclick="search()"></i>
+          <div class="show-search hidden" id="show-search"></div>
+        </div>
+        <div class="admin pointer hidden" id="admin1" onclick="openAdmin(0)">admin</div>
+        <div class="admin pointer" id="login1" onclick="loginPage()">Login</div>
+        <div class="profile-list hidden" id="adminlist">
+
+        </div>
+        <div class="admin pointer" id="signup1" onclick="registerPage()">Sign Up</div>
+        <div class="profile hidden" id="sprofile" onclick="openAdmin(1)">A</div>
+      </div>
+
+
+      <div class="main-nav">
+        <div></div>
+        <div class="nav">
+          <a href="#allbook" class="nav-link">All Books</a>
+          <a href="#mybooks" class="nav-link hidden" id="navbook">My Books</a>
+          <a href="#recent" class="nav-link">Recently Published</a>
+          <a href="#bestselling" class="nav-link">BestSelling</a>
+          <a href="#footer" class="nav-link">Contact Us</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="section-hero" id="aboutus">
+        <div class="hero">
+          <div class="hero-content">
+            <p class="hero-content-header">Our Mission</p>
+            <p class="hero-content-description">
+              We believe that reading opens doors, and part of our mission is to
+              change the way the world reads by providing a wide range of
+              reading material in both print and audio formats at a price that
+              is fair for both creators and consumers.
+            </p>
+          </div>
+          <div class="hero-img">
+            <!-- <img src="./images/e-library.jpg" alt="book shelf" /> -->
+          </div>
+        </div>
+      </div>
+
+
+      <section class="section-allbooks mother-card hidden" id="searchbooks">
+        <p>
+        <h3>SEARCH RESULT</h3>
+        </p>
+        <!-- BUTTON -->
+        <div class="" id="sbp">
+          <button class="prev-btn" onclick="nextPrev(0, searchBooks)">
+            <i class="fa fa-angle-left" style="font-size: 17px"></i>
+          </button>
+        </div>
+        <!-- BUTTON -->
+        <!-- BUTTON -->
+        <div class="" id="sbn">
+          <button class="next-btn" onclick="nextPrev(1,searchBooks )">
+            <i class="fa fa-angle-right" style="font-size: 17px"></i>
+          </button>
+        </div>
+        <!-- BUTTON -->
+        <div class="card-container" id="searchbook">
+        </div>
+      </section>
+
+
+
+      <section class="section-mybook mother-card hidden" id="mybooks">
+        <p>
+        <h3>MY BOOKS</h3>
+        </p>
+        <!-- BUTTON -->
+        <div class="">
+          <button class="prev-btn" onclick="nextPrev(0,myBooks )">
+            <i class="fa fa-angle-left" style="font-size: 17px"></i>
+          </button>
+        </div>
+        <!-- BUTTON -->
+        <!-- BUTTON -->
+        <div class="">
+          <button class="next-btn" onclick="nextPrev(1,myBooks )">
+            <i class="fa fa-angle-right" style="font-size: 17px"></i>
+          </button>
+        </div>
+        <!-- BUTTON -->
+        <div class="card-container" id="mybook">
+        </div>
+      </section>
+
+
+
+      <section class="section-allbooks mother-card hidden" id="allbook">
+        <p>
+        <h3>ALL BOOKS</h3>
+        </p>
+        <!-- BUTTON -->
+        <div class="" id="abp">
+          <button class="prev-btn" onclick="nextPrev(0, allbooks)">
+            <i class="fa fa-angle-left" style="font-size: 17px"></i>
+          </button>
+        </div>
+        <!-- BUTTON -->
+        <!-- BUTTON -->
+        <div class="" id="abn">
+          <button class="next-btn" onclick="nextPrev(1, allbooks)">
+            <i class="fa fa-angle-right" style="font-size: 17px"></i>
+          </button>
+        </div>
+        <!-- BUTTON -->
+        <div class="card-container" id="allbooks">
+        </div>
+      </section>
+
+
+
+      <section class="section-best-selling mother-card hidden" id="bestselling">
+        <p>
+        <h3>BEST SELLING (ALL CATEGORIES)</h3>
+        </p>
+        <!-- BUTTON -->
+        <div class="">
+          <button class="prev-btn" onclick="nextPrev(0, bestSellings)">
+            <i class="fa fa-angle-left" style="font-size: 17px"></i>
+          </button>
+        </div>
+        <!-- BUTTON -->
+        <!-- BUTTON -->
+        <div class="">
+          <button class="next-btn" onclick="nextPrev(1, bestSellings)">
+            <i class="fa fa-angle-right" style="font-size: 17px"></i>
+          </button>
+        </div>
+        <!-- BUTTON -->
+        <div class="card-container" id="bestsellings">
+          <!-- <div class="card">
+            <div class="card-top">
+              <img src="./images/real images/7.jpg" alt="" />
+            </div>
+            <div class="card-bottom">
+              <div class="card-content">
+                <div class="tag"></div>
+                <p class="booktype">Type</p>
+                <p class="bookCategory">Category</p>
+                <p class="ratings">Ratings</p>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </section>
+
+
+
+      <section class="section-recent-books mother-card hidden" id="recent">
+        <p>
+        <h3>RECENTLY PUBLISHED</h3>
+        </p>
+        <!-- BUTTON -->
+        <div class="">
+          <button class="prev-btn" onclick="nextPrev(0, recents)">
+            <i class="fa fa-angle-left" style="font-size: 17px"></i>
+          </button>
+        </div>
+        <!-- BUTTON -->
+        <!-- BUTTON -->
+        <div class="">
+          <button class="next-btn" onclick="nextPrev(1, recents)">
+            <i class="fa fa-angle-right" style="font-size: 17px"></i>
+          </button>
+        </div>
+        <!-- BUTTON -->
+        <div class="card-container" id="recents">
+        </div>
+      </section>
+
+
+    </main>
+    <footer>
+      <div class="container-last" id="footer">
+        <div class="col">
+          <h2>About Scribd</h2>
+          <li><a href="#">Press</a></li>
+          <li><a href="">Our blog</a></li>
+          <li><a href="">Join our team!</a></li>
+          <li><a href="">Contact us</a></li>
+          <li><a href="">Invite friends</a></li>
+          <li> <a href="">Gifts</a></li>
+          <li><a href="">Gifts</a></li>
+        </div>
+        <div class="col">
+          <h2>Support</h2>
+          <li><a href="">Help / FAQ</a></li>
+          <li><a href="">Accessibility</a></li>
+          <li><a href="">Purchase help</a></li>
+          <li> <a href="">AdChoices</a></li>
+          <li><a href="">Publishers</a></li>
+        </div>
+        <div class="col">
+          <h2>Legal</h2>
+          <li><a href="">Terms</a></li>
+          <li><a href="">Privacy</a></li>
+          <li><a href="">Copyright</a></li>
+          <li><a href="">Cookie Preferences</a></li>
+        </div>
+        <div class="col">
+          <h2>Social</h2>
+          <li>
+            <i class="fa-brands fa-instagram" style="padding-right: 10px"></i><a href="">Instagram</a>
+          </li>
+          <li>
+            <i class="fa-brands fa-twitter" style="padding-right: 10px"></i><a href="">Twitter</a>
+          </li>
+          <li>
+            <i class="fa-brands fa-facebook" style="padding-right: 10px"></i><a href="">Facebook</a>
+          </li>
+          <li>
+            <i class="fa-brands fa-pinterest" style="padding-right: 10px"></i><a href="">Pinterest</a>
+          </li>
+        </div>
+        <div class="col"></div>
+        <div class="col">
+          <h2>Get our free apps</h2>
+          <div class="" style="margin-bottom: 10px; margin-top: 10px">
+            <img src="./images/apple-logo.svg" alt="" />
+          </div>
+          <div class="">
+            <img src="./images/playstore.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <script src="https://kit.fontawesome.com/7a0c51bb3e.js" crossorigin="anonymous"></script>
+  <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+  <script defer src="script.js"></script>
+</body>
+
+</html>
